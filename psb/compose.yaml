@@ -1,0 +1,12 @@
+services:
+  legal-assistant:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DATA_DIR: data
+    volumes:
+      - ./data:/app/data:ro
+    restart: unless-stopped
